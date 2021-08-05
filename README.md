@@ -1,1 +1,1 @@
-# Eine Datenbank Anwendung mit meinen aufgezeichneten Radtouren.
+# Eine Datenbank Anwendung für meine aufgezeichneten Radtouren.
