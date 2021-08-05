@@ -1,0 +1,20 @@
+table { width: 100%}
+th { background-color: aquamarine; color: darkslateblue;}
+th , td { padding: 1px}
+td  { text-align: right;}
+
+/* gerade Zeile */
+tr:nth-child(even) { background-color: lightgrey}
+
+/* ungerade Zeile */
+tr:nth-child(odd)  { background-color: azure}
+
+/* unvisited link */
+a:link    { color: slategray;}
+
+/* visited link */
+a:visited { color: darkred;}
+
+/* mouse over link */
+a:hover   { color: blue;}
+
