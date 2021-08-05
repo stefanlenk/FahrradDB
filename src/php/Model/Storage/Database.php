@@ -62,7 +62,7 @@ class Database extends Storage
     /**
      * @return array
      */
-    public function getSummen(): array
+    public function getSummen()
     {
        $sql =  'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
                   FROM touren

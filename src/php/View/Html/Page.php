@@ -21,7 +21,7 @@ abstract class Page extends Html
 				<link rel="stylesheet" href="stylesheet.css">
 			  </head>
 			  ' . $this->htmlAktionHomepage() . '			  
-			  		            
+			  ' . $this->htmlAktionSuche(). '		            
 			  ' . $this->htmlBody() . '			  
 			</html>';
 	}
@@ -43,6 +43,16 @@ abstract class Page extends Html
         ));
 
         $result = '<a href="/?' . $query . '">Übersicht</a>';
+        return $result;
+    }
+
+    protected function htmlAktionSuche()
+    {
+        $query = http_build_query(array(
+            Name::Task => Task::Suche
+        ));
+
+        $result = '<a href="/?' . $query . '">Suche</a>';
         return $result;
     }
 }

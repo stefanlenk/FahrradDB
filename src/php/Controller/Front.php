@@ -20,6 +20,9 @@ class Front extends Controller
 			default:
 				$controllerClassName = ShowTourenListe::class;
 				break;
+            case task::Suche:
+                $controllerClassName = ShowSuche::class;
+                break;
 		}
 
 		/** @var Controller $controller */

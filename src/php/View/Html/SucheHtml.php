@@ -7,7 +7,7 @@ use Application\Model\Input\Task;
 use Application\Model\Tour;
 use Application\View\Html;
 
-class TourenListeHtml extends Html
+class SucheHtml extends Html
 {
     /** @var array */
     protected $touren;
@@ -68,10 +68,19 @@ class TourenListeHtml extends Html
 				<td>' . htmlspecialchars($tour->getKm()) . '</td>
 				<td>' . htmlspecialchars($tour->getSchnitt()) . '</td>
 				<td>' . htmlspecialchars($tour->getRad()) . '</td>
-				<td>' . htmlspecialchars($tour->getPowerAvg()) . '</td>
 				<td>' . $this->htmlAktionStrava($tour). '</td>
 				<td>' . $this->htmlAktionVeloviewer($tour) . '</td>
 			</tr>';
+    }
+
+    protected function htmlAktionPowerAvg($tour)
+    {
+        if (htmlspecialchars($tour->getPowerAvg) != NULL)
+        {
+            $result = $tour->getPowerAvg();
+            return $result;
+        }
+        else return 'Null';
     }
 
     protected function htmlAktionStrava($tour): ?string
@@ -88,7 +97,7 @@ class TourenListeHtml extends Html
     }
 
 
-    protected function htmlAktionVeloviewer($tour): ?string
+    protected function htmlAktionVeloviewer($tour)
     {
         if ($tour->getStrava() != NULL) {
             $query = $tour->getStrava();
