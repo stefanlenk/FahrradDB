@@ -93,7 +93,8 @@ class TourenListeHtml extends Html
         if ($tour->getStrava() != NULL) {
             $query = $tour->getStrava();
 
-            $result = '<a href="https://www.veloviewer.com/athletes/906837/activities/'
+            $result = '<a href="https://www.veloviewer.com/athletes/'
+                . Name::veloviewer . '/activities/'
                 . $query . '" target="_blank">Veloviewer</a>';
 
             return $result;
