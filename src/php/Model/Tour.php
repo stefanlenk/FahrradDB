@@ -25,6 +25,9 @@ class Tour
     /** @var string */
     protected $Strava;
 
+    /** @var string */
+    protected $StravaID;
+
     /** @var int */
     protected $PowerAvg;
 
@@ -154,5 +157,21 @@ class Tour
     public function setPowerAvg($PowerAvg)
     {
         $this->PowerAvg = $PowerAvg;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStravaID(): string
+    {
+        return $this->StravaID;
+    }
+
+    /**
+     * @param string $StravaID
+     */
+    public function setStravaID(string $StravaID): void
+    {
+        $this->StravaID = $StravaID;
     }
 }

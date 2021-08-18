@@ -92,4 +92,6 @@ class Database extends Storage
         $result->setGesSchnitt($row['AVG(touren.Schnitt)']);
         return $result;
     }
+
+
 }
