@@ -8,14 +8,14 @@ use Application\View\Html\HomeHtml;
 class Home extends Page
 {
 	/** @var array */
-	protected $ID;
+	protected $summen;
 
 	/**
 	 * @param array $summen
 	 */
-	public function __construct($ID)
+	public function __construct($summen)
 	{
-		$this->ID = $ID;
+		$this->summen = $summen;
 	}
 
 	protected function htmlPageTitle()
@@ -33,7 +33,7 @@ class Home extends Page
 
 	protected function htmlSummenTabelle()
 	{
-		$view = new HomeHtml($this->ID);
+		$view = new HomeHtml($this->summen);
 		$view->render();
 		$result = $view->getHtml();
 		return $result;

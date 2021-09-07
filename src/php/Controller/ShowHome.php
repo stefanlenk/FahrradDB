@@ -11,7 +11,7 @@ class ShowHome extends Controller
 {
 	public function handleRequest()
 	{
-        $ID = $this->modelID();
+        $ID = $this->modelSumme();
         $view = new Home($ID);
         $view->render();
 		$this->response = new Html($view->getHtml());
@@ -20,11 +20,11 @@ class ShowHome extends Controller
 	/**
 	 * @return array
 	 */
-	protected function modelID(): array
+	protected function modelSumme(): array
     {
 		$connection = $this->setup->databaseConnection();
 		$storage = new Database($connection);
-		$result = $storage->getStravaID();
+		$result = $storage->getSummen();
 		return $result;
 	}
 }

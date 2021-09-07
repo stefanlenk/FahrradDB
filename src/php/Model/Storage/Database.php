@@ -66,7 +66,8 @@ class Database extends Storage
     {
        $sql =  'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
                   FROM touren
-                  JOIN fahrrad ON touren.rad = fahrrad.ID Group BY fahrrad.ID';
+                  JOIN fahrrad ON touren.rad = fahrrad.ID
+                  Group BY fahrrad.ID  ORDER BY SUM(touren.km) desc';
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();

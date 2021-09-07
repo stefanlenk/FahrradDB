@@ -7,7 +7,7 @@ use Application\Model\Input\Task;
 use Application\Model\Tour;
 use Application\View\Html;
 
-abstract class SucheHtml extends Html
+class SucheHtml extends Html
 {
     /** @var array */
     protected $touren;
