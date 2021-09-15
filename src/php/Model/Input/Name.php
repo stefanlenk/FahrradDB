@@ -10,5 +10,5 @@ class Name
 	const Km = 'km';
 	const StravaID = 'Strava';
 	const Date = 'DatumUhrzeit';
-    const veloviewer = 000;
+    const veloviewer = 906837;
 }

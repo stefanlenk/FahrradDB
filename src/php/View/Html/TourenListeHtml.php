@@ -3,14 +3,13 @@
 namespace Application\View\Html;
 
 use Application\Model\Input\Name;
-use Application\Model\Input\Task;
 use Application\Model\Tour;
 use Application\View\Html;
 
 class TourenListeHtml extends Html
 {
     /** @var array */
-    protected $touren;
+    protected array $touren;
 
     /**
      * @param array $touren
@@ -63,12 +62,12 @@ class TourenListeHtml extends Html
     {
         return
             '<tr>
-				<td>' . htmlspecialchars($tour->getDatumUhrzeit()) . '</td>
-				<td>' . htmlspecialchars($tour->getTitel()) . '</td>
-				<td>' . htmlspecialchars($tour->getKm()) . '</td>
-				<td>' . htmlspecialchars($tour->getSchnitt()) . '</td>
-				<td>' . htmlspecialchars($tour->getRad()) . '</td>
-				<td>' . htmlspecialchars($tour->getPowerAvg()) . '</td>
+				<td>' . $tour->getDatumUhrzeit() . '</td>
+				<td>' . $tour->getTitel() . '</td>
+				<td>' . $tour->getKm() . '</td>
+				<td>' . $tour->getSchnitt() . '</td>
+				<td>' . $tour->getRad() . '</td>
+				<td>' . $tour->getPowerAvg() . '</td>
 				<td>' . $this->htmlAktionStrava($tour). '</td>
 				<td>' . $this->htmlAktionVeloviewer($tour) . '</td>
 			</tr>';

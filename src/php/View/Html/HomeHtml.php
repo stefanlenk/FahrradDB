@@ -10,7 +10,7 @@ use Application\View\Html;
 class HomeHtml extends Html
 {
     /** @var array */
-    protected $summen;
+    protected array $summen;
 
     /**
      * @param array $summen
@@ -58,9 +58,9 @@ class HomeHtml extends Html
     {
         return
             '<tr>
-				<td>' . htmlspecialchars($summe->getRad()) . '</td>
-				<td>' . htmlspecialchars($summe->getGesamtKM()) . '</td>
-				<td>' . htmlspecialchars($summe->getGesSchnitt()) . '</td>
+				<td>' . $summe->getRad() . '</td>
+				<td>' . $summe->getGesamtKM() . '</td>
+				<td>' . $summe->getGesSchnitt() . '</td>
 			</tr>';
     }
 }

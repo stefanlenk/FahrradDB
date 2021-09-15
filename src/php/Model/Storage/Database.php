@@ -64,10 +64,11 @@ class Database extends Storage
      */
     public function getSummen()
     {
-       $sql =  'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
+        $sql2 = 'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
                   FROM touren
                   JOIN fahrrad ON touren.rad = fahrrad.ID
                   Group BY fahrrad.ID  ORDER BY SUM(touren.km) desc';
+        $sql  = 'SELECT * from radsummen';
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();
@@ -88,11 +89,9 @@ class Database extends Storage
     {
         $result = new Summe();
 
-        $result->setRad($row['Name']);
-        $result->setGesamtKM($row['SUM(touren.km)']);
-        $result->setGesSchnitt($row['AVG(touren.Schnitt)']);
+        $result->setRad($row['Fahrrad']);
+        $result->setGesamtKM($row['km']);
+        $result->setGesSchnitt($row['Schnitt']);
         return $result;
     }
-
-
 }

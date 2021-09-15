@@ -30,33 +30,33 @@ class Summe
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getGesamtKM(): float
+    public function getGesamtKM(): string
     {
         return $this->GesamtKM;
     }
 
     /**
-     * @param float $GesamtKM
+     * @param string $GesamtKM
      */
-    public function setGesamtKM(float $GesamtKM)
+    public function setGesamtKM(string $GesamtKM)
     {
         $this->GesamtKM = $GesamtKM;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getGesSchnitt(): float
+    public function getGesSchnitt(): string
     {
         return $this->GesSchnitt;
     }
 
     /**
-     * @param float $GesSchnitt
+     * @param string $GesSchnitt
      */
-    public function setGesSchnitt(float $GesSchnitt)
+    public function setGesSchnitt(string $GesSchnitt)
     {
         $this->GesSchnitt = $GesSchnitt;
     }
