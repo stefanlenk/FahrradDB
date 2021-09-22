@@ -17,7 +17,7 @@ abstract class Page extends Html
 				<meta charset="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<title>' . $this->htmlPageTitle() . ' | Touren-Liste</title>
-				<link rel="icon" type="image/x-icon" href="favicon.ico">
+				<link rel="icon" type="image/x-icon" href="favicon-96.png">
 				<link rel="stylesheet" href="stylesheet.css">
 			  </head>
 			  ' . $this->htmlAktionHomepage() . '			  
