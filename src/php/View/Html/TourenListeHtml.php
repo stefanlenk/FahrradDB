@@ -62,15 +62,21 @@ class TourenListeHtml extends Html
     {
         return
             '<tr>
-				<td>' . $tour->getDatumUhrzeit() . '</td>
+				<td>' . $this->datum($tour) . '</td>
 				<td>' . $tour->getTitel() . '</td>
-				<td>' . $tour->getKm() . '</td>
-				<td>' . $tour->getSchnitt() . '</td>
+				<td>' . number_format($tour->getKm(),2,',', '.') . '</td>
+				<td>' . number_format($tour->getSchnitt(),1,',', '.') . '</td>
 				<td>' . $tour->getRad() . '</td>
 				<td>' . $tour->getPowerAvg() . '</td>
 				<td>' . $this->htmlAktionStrava($tour). '</td>
 				<td>' . $this->htmlAktionVeloviewer($tour) . '</td>
 			</tr>';
+    }
+
+    protected function datum($tour)
+    {
+        $datum = strtotime($tour->getDatumUhrzeit());
+        return strftime("%d. %b %G",$datum);
     }
 
     protected function htmlAktionStrava($tour): ?string

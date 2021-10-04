@@ -53,7 +53,7 @@ class Database extends Storage
         $result->setTitel($row['Titel']);
         $result->setKm($row['km']);
         $result->setSchnitt($row['Schnitt']);
-        $result->setRad($row['Name']);
+        $result->setRad($row['RadName']);
         $result->setPowerAvg($row['Power_Avg']);
         $result->setStrava($row['Activity_ID']);
         return $result;
