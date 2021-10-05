@@ -59,8 +59,8 @@ class HomeHtml extends Html
         return
             '<tr>
 				<td>' . $summe->getRad() . '</td>
-				<td>' . $summe->getGesamtKM() . '</td>
-				<td>' . $summe->getGesSchnitt() . '</td>
+				<td>' . number_format($summe->getGesamtKM(),0,',','.') . '</td>
+				<td>' . number_format($summe->getGesSchnitt(),1,',','.') . '</td>
 			</tr>';
     }
 }

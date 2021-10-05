@@ -76,7 +76,7 @@ class TourenListeHtml extends Html
     protected function datum($tour)
     {
         $datum = strtotime($tour->getDatumUhrzeit());
-        return strftime("%d. %b %G",$datum);
+        return strftime("%d. %h %G %H:%M",$datum);
     }
 
     protected function htmlAktionStrava($tour): ?string

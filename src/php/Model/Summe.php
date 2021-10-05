@@ -24,7 +24,7 @@ class Summe
     /**
      * @param string $Rad
      */
-    public function setRad(string $Rad)
+    public function setRad($Rad)
     {
         $this->Rad = $Rad;
     }

@@ -11,8 +11,8 @@ class ShowSuche extends Controller
 {
 	public function handleRequest()
 	{
-        $touren = $this->modelTourenListe();
-        $view = new Suche($touren);
+        $ID = $this->modelTourenListe();
+        $view = new Suche($ID);
         $view->render();
 		$this->response = new Html($view->getHtml());
 	}

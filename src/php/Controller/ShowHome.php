@@ -11,8 +11,8 @@ class ShowHome extends Controller
 {
 	public function handleRequest()
 	{
-        $ID = $this->modelSumme();
-        $view = new Home($ID);
+        $summen = $this->modelSumme();
+        $view = new Home($summen);
         $view->render();
 		$this->response = new Html($view->getHtml());
 	}

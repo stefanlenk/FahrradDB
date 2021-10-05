@@ -62,21 +62,21 @@ class Database extends Storage
     /**
      * @return array
      */
-    public function getSummen()
+    public function getSummen(): array
     {
         $sql2 = 'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
                   FROM touren
                   JOIN fahrrad ON touren.rad = fahrrad.ID
                   Group BY fahrrad.ID  ORDER BY SUM(touren.km) desc';
-        $sql  = 'SELECT * from radsummen';
+        $sql  = 'SELECT Fahrrad,km,Schnitt from radsummen';
 
         $statement = $this->connection->prepare($sql);
         $statement->execute();
-        $rows = $statement->fetch(PDO::FETCH_ASSOC);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
         $result = array();
 
         foreach($rows as $row)
-            $result[] = $this->newSumme($row);
+            $result[] = $this->newSummen($row);
 
         return $result;
     }
@@ -85,7 +85,7 @@ class Database extends Storage
      * @param $row
      * @return Summe
      */
-    protected function newSumme($row): Summe
+    protected function newSummen(array $row): Summe
     {
         $result = new Summe();
 
