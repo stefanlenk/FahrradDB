@@ -8,14 +8,14 @@ use Application\View\Html\SucheHtml;
 class Suche extends Page
 {
 	/** @var array */
-	protected $touren;
+	protected $tour;
 
 	/**
-	 * @param array $touren
+	 * @param array $tour
 	 */
-	public function __construct($touren)
+	public function __construct($tour)
 	{
-		$this->touren = $touren;
+		$this->tour = $tour;
 	}
 
 	protected function htmlPageTitle()
@@ -33,7 +33,7 @@ class Suche extends Page
 
 	protected function htmlSummenTabelle()
 	{
-		$view = new SucheHtml($this->touren);
+		$view = new SucheHtml($this->tour);
 		$view->render();
 		$result = $view->getHtml();
 		return $result;

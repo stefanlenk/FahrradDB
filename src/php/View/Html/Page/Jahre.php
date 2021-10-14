@@ -3,9 +3,9 @@
 namespace Application\View\Html\Page;
 
 use Application\View\Html\Page;
-use Application\View\Html\HomeHtml;
+use Application\View\Html\JahreHtml;
 
-class Home extends Page
+class Jahre extends Page
 {
 	/** @var array */
 	protected $summen;
@@ -20,7 +20,7 @@ class Home extends Page
 
 	protected function htmlPageTitle()
 	{
-		return 'Räder';
+		return 'Jahresübersicht';
 	}
 
 	/**
@@ -33,7 +33,7 @@ class Home extends Page
 
 	protected function htmlSummenTabelle()
 	{
-		$view = new HomeHtml($this->summen);
+		$view = new JahreHtml($this->summen);
 		$view->render();
 		$result = $view->getHtml();
 		return $result;

@@ -13,6 +13,12 @@ class Summe
     /** @var string */
     protected string $GesSchnitt;
 
+    /** @var string */
+    protected string $Jahr;
+
+    /** @var string */
+    protected string $Gewicht;
+
     /**
      * @return string
      */
@@ -24,7 +30,7 @@ class Summe
     /**
      * @param string $Rad
      */
-    public function setRad($Rad)
+    public function setRad( string $Rad)
     {
         $this->Rad = $Rad;
     }
@@ -59,5 +65,37 @@ class Summe
     public function setGesSchnitt(string $GesSchnitt)
     {
         $this->GesSchnitt = $GesSchnitt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJahr(): string
+    {
+        return $this -> Jahr;
+    }
+
+    /**
+     * @param string $Jahr
+     */
+    public function setJahr( string $Jahr)
+    {
+        $this -> Jahr = $Jahr;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGewicht(): string
+    {
+        return $this -> Gewicht;
+    }
+
+    /**
+     * @param string $Gewicht
+     */
+    public function setGewicht( string $Gewicht )
+    {
+        $this -> Gewicht = $Gewicht;
     }
 }

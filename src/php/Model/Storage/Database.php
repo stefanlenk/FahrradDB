@@ -59,12 +59,26 @@ class Database extends Storage
         return $result;
     }
 
+    public function getTour($tour): array
+    {
+        $sql = 'SELECT * FROM touren JOIN fahrrad
+            ON touren.Rad = fahrrad.ID WHERE DATE(DatumUhrzeit)= :Datum';
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result = array();
+        foreach ($rows as $row)
+            $result[] = $this->newTour($row);
+
+        return $result;
+    }
+
     /**
      * @return array
      */
     public function getSummen(): array
     {
-        $sql2 = 'SELECT fahrrad.Name,SUM(touren.km),AVG(touren.Schnitt)
+        $sql2 = 'SELECT fahrrad.RadName,SUM(touren.km),AVG(touren.Schnitt)
                   FROM touren
                   JOIN fahrrad ON touren.rad = fahrrad.ID
                   Group BY fahrrad.ID  ORDER BY SUM(touren.km) desc';
@@ -92,6 +106,34 @@ class Database extends Storage
         $result->setRad($row['Fahrrad']);
         $result->setGesamtKM($row['km']);
         $result->setGesSchnitt($row['Schnitt']);
+        return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getJahrSummen(): array
+    {
+        $sql = 'SELECT * FROM jahressummen';
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result = array();
+
+        foreach($rows as $row)
+            $result[] = $this->newJahrSummen($row);
+
+        return $result;
+    }
+    protected function newJahrSummen(array $row): Summe
+    {
+        $result = new Summe();
+
+        $result->setJahr($row['Jahr']);
+        $result->setGesamtKM($row['km']);
+        $result->setGesSchnitt($row['Schnitt']);
+        $result->setGewicht($row['kg']);
         return $result;
     }
 }

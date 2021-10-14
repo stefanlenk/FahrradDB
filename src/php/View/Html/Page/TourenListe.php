@@ -8,7 +8,7 @@ use Application\View\Html\TourenListeHtml;
 class TourenListe extends Page
 {
 	/** @var array */
-	protected $touren;
+	protected array $touren;
 
 	/**
 	 * @param array $touren
@@ -20,7 +20,7 @@ class TourenListe extends Page
 
 	protected function htmlPageTitle()
 	{
-		return 'Stefans';
+		return 'TourenListe';
 	}
 
 	/**

@@ -6,18 +6,19 @@ use Application\Model\Input\Name;
 use Application\Model\Tour;
 use Application\View\Html;
 
-class TourenListeHtml extends Html
+class AusgabeHtml extends Html
 {
     /** @var array */
-    protected array $touren;
+    protected $tour;
 
     /**
-     * @param array $touren
+     * @param array $tour
      */
-    public function __construct(array $touren)
+    public function __construct(array $tour)
     {
-        $this->touren = $touren;
+        $this->tour = $tour;
     }
+
 
     public function render()
     {
@@ -30,6 +31,7 @@ class TourenListeHtml extends Html
 					<th>Km</th>
 					<th>km/h</th>
 					<th>Rad</th>
+					<th>Power avg</th>
 					<th></th>
 					<th></th>
 				</tr>
@@ -61,21 +63,14 @@ class TourenListeHtml extends Html
     {
         return
             '<tr>
-				<td>' . $this->datum($tour) . '</td>
-				<td>' . $tour->getTitel() . '</td>
-				<td>' . number_format($tour->getKm(),2,',', '.') . '</td>
-				<td>' . number_format($tour->getSchnitt(),1,',', '.') . '</td>
-				<td>' . $tour->getRad() . '</td>
+				<td>' . htmlspecialchars($tour->getDatumUhrzeit()) . '</td>
+				<td>' . htmlspecialchars($tour->getTitel()) . '</td>
+				<td>' . htmlspecialchars($tour->getKm()) . '</td>
+				<td>' . htmlspecialchars($tour->getSchnitt()) . '</td>
+				<td>' . htmlspecialchars($tour->getRad()) . '</td>
 				<td>' . $this->htmlAktionStrava($tour). '</td>
 				<td>' . $this->htmlAktionVeloviewer($tour) . '</td>
 			</tr>';
-    }
-
-    protected function datum($essen)
-    {
-        setlocale (LC_ALL,'');
-        $datum = strtotime($essen->getDatumUhrzeit());
-        return strftime("%d.%m.%Y",$datum);
     }
 
     protected function htmlAktionStrava($tour): ?string
@@ -92,7 +87,7 @@ class TourenListeHtml extends Html
     }
 
 
-    protected function htmlAktionVeloviewer($tour): ?string
+    protected function htmlAktionVeloviewer($tour)
     {
         if ($tour->getStrava() != NULL) {
             $query = $tour->getStrava();

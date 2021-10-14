@@ -17,6 +17,9 @@ class Front extends Controller
 			case Task::Home:
 				$controllerClassName = ShowHome::class;
 				break;
+            case Task::Jahre:
+                $controllerClassName = ShowJahre::class;
+                break;
 			default:
 				$controllerClassName = ShowTourenListe::class;
 				break;
