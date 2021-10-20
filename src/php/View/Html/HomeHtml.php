@@ -24,9 +24,9 @@ class HomeHtml extends Html
             '<table>
                 <thead>
 				<tr>
-					<th>Rad</th>
 					<th>Gesamt Km</th>
-					<th>km/h</th>
+					<th>Gesamt Hm</th>
+					<th>Km pro Tag</th>
 				</tr>
 			    </thead>
 			    <tbody>
@@ -38,7 +38,7 @@ class HomeHtml extends Html
     /**
      * @return string|null
      */
-    protected function htmlTableRows()
+    protected function htmlTableRows(): ?string
     {
         $result = NULL;
 
@@ -46,6 +46,14 @@ class HomeHtml extends Html
             $result .= $this->htmlTableRow($summe);
 
         return $result;
+    }
+
+    protected function SummenBerechnung(Summe $summe)
+    {
+        $km = $summe->getGesamtKM();
+        $tage = $summe->getTage();
+        $proTag = $km / $tage;
+        return $proTag;
     }
 
     /**
@@ -56,9 +64,9 @@ class HomeHtml extends Html
     {
         return
             '<tr>
-				<td>' . $summe->getRad() . '</td>
 				<td>' . number_format($summe->getGesamtKM(),0,',','.') . '</td>
-				<td>' . number_format($summe->getGesSchnitt(),1,',','.') . '</td>
+				<td>' . number_format($summe->getGesamtHM(),0,',','.') . '</td>
+				<td>' . number_format($this->SummenBerechnung (),0,',','.') . '</td>
 			</tr>';
     }
 }

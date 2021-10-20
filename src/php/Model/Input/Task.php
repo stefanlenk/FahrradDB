@@ -8,4 +8,5 @@ class Task
 	const Home = 'home';
 	const Suche = 'suchen';
     const Jahre = 'jahre';
+    const Räder = 'fahrrad';
 }

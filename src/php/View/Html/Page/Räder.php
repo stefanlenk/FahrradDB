@@ -3,9 +3,9 @@
 namespace Application\View\Html\Page;
 
 use Application\View\Html\Page;
-use Application\View\Html\HomeHtml;
+use Application\View\Html\RäderHtml;
 
-class Home extends Page
+class Räder extends Page
 {
 	/** @var array */
 	protected $summen;
@@ -20,7 +20,7 @@ class Home extends Page
 
 	protected function htmlPageTitle()
 	{
-		return 'Übersicht';
+		return 'Räder';
 	}
 
 	/**
@@ -33,7 +33,7 @@ class Home extends Page
 
 	protected function htmlSummenTabelle()
 	{
-		$view = new HomeHtml($this->summen);
+		$view = new RäderHtml($this->summen);
 		$view->render();
 		$result = $view->getHtml();
 		return $result;

@@ -28,6 +28,7 @@ class TourenListeHtml extends Html
 					<th>Datum</th>
 					<th>Titel</th>
 					<th>Km</th>
+					<th>Hm</th>
 					<th>km/h</th>
 					<th>Rad</th>
 					<th></th>
@@ -64,6 +65,7 @@ class TourenListeHtml extends Html
 				<td>' . $this->datum($tour) . '</td>
 				<td>' . $tour->getTitel() . '</td>
 				<td>' . number_format($tour->getKm(),2,',', '.') . '</td>
+				<td>' . number_format($tour->getHm(),0,',', '.') . '</td>
 				<td>' . number_format($tour->getSchnitt(),1,',', '.') . '</td>
 				<td>' . $tour->getRad() . '</td>
 				<td>' . $this->htmlAktionStrava($tour). '</td>
@@ -71,10 +73,10 @@ class TourenListeHtml extends Html
 			</tr>';
     }
 
-    protected function datum($essen)
+    protected function datum($tour)
     {
         setlocale (LC_ALL,'');
-        $datum = strtotime($essen->getDatumUhrzeit());
+        $datum = strtotime($tour->getDatumUhrzeit());
         return strftime("%d.%m.%Y",$datum);
     }
 

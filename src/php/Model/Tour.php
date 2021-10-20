@@ -14,6 +14,9 @@ class Tour
 	protected string $titel;
 
     /** @var string */
+    protected string $hm;
+
+    /** @var string */
     protected string $km;
 
     /** @var string */
@@ -24,9 +27,6 @@ class Tour
 
     /** @var string */
     protected $Strava;
-
-    /** @var string */
-    protected $StravaID;
 
     /** @var int */
     protected $PowerAvg;
@@ -62,6 +62,22 @@ class Tour
     {
 		return $this->titel;
 	}
+
+    /**
+     * @return string
+     */
+    public function getHm(): string
+    {
+        return $this -> hm;
+    }
+
+    /**
+     * @param string $hm
+     */
+    public function setHm( string $hm )
+    {
+        $this -> hm = $hm;
+    }
 
     /**
      * @return string
@@ -157,21 +173,5 @@ class Tour
     public function setPowerAvg($PowerAvg)
     {
         $this->PowerAvg = $PowerAvg;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStravaID(): string
-    {
-        return $this->StravaID;
-    }
-
-    /**
-     * @param string $StravaID
-     */
-    public function setStravaID(string $StravaID): void
-    {
-        $this->StravaID = $StravaID;
     }
 }

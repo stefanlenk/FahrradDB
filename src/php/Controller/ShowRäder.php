@@ -5,14 +5,14 @@ namespace Application\Controller;
 use Application\Controller;
 use Application\Model\Response\Html;
 use Application\Model\Storage\Database;
-use Application\View\Html\Page\Home;
+use Application\View\Html\Page\Räder;
 
-class ShowHome extends Controller
+class ShowRäder extends Controller
 {
 	public function handleRequest()
 	{
         $summen = $this->modelSumme();
-        $view = new Home($summen);
+        $view = new Räder($summen);
         $view->render();
 		$this->response = new Html($view->getHtml());
 	}
@@ -24,7 +24,7 @@ class ShowHome extends Controller
     {
 		$connection = $this->setup->databaseConnection();
 		$storage = new Database($connection);
-		$result = $storage->getGesamtSumme();
+		$result = $storage->getRadSummen ();
 		return $result;
 	}
 }

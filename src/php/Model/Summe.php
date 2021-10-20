@@ -11,10 +11,19 @@ class Summe
     protected string $GesamtKM;
 
     /** @var string */
+    protected string $GesamtHM;
+
+    /** @var string */
+    protected string $TagesKM;
+
+    /** @var string */
     protected string $GesSchnitt;
 
     /** @var string */
     protected string $Jahr;
+
+    /** @var string */
+    protected string $Tage;
 
     /** @var string */
     protected string $Gewicht;
@@ -97,5 +106,53 @@ class Summe
     public function setGewicht( string $Gewicht )
     {
         $this -> Gewicht = $Gewicht;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGesamtHM(): string
+    {
+        return $this -> GesamtHM;
+    }
+
+    /**
+     * @param string $GesamtHM
+     */
+    public function setGesamtHM( string $GesamtHM )
+    {
+        $this -> GesamtHM = $GesamtHM;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTagesKM(): string
+    {
+        return $this -> TagesKM;
+    }
+
+    /**
+     * @param string $TagesKM
+     */
+    public function setTagesKM( string $TagesKM )
+    {
+        $this -> TagesKM = $TagesKM;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTage(): string
+    {
+        return $this -> Tage;
+    }
+
+    /**
+     * @param string $Tage
+     */
+    public function setTage( string $Tage )
+    {
+        $this -> Tage = $Tage;
     }
 }

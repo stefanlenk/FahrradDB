@@ -22,7 +22,7 @@ abstract class Page extends Html
 			  </head>
 			  <nav>
 			    <ul>
-			        <li>' . $this -> htmlAktionHome () . '</li>
+			        <li>' . $this -> htmlAktionRäder () . '</li>
 			        <li>' . $this -> htmlAktionJahre () . '</li>
 			        <li>' . $this -> htmlAktionListe () . '</li>
 			        <li>' . $this -> htmlAktionSuche () . '</li>
@@ -37,10 +37,10 @@ abstract class Page extends Html
      */
     abstract protected function htmlPageTitle();
 
-    protected function htmlAktionHome(): string
+    protected function htmlAktionRäder(): string
     {
         $query = http_build_query ( array(
-            Name::Task => Task::Home
+            Name::Task => Task::Räder
         ) );
 
         $result = '<a href="/?' . $query . '">Übersicht Räder</a>';

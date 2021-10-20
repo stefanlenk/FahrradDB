@@ -5,7 +5,7 @@ namespace Application\View\Html;
 use Application\Model\Summe;
 use Application\View\Html;
 
-class JahreHtml extends Html
+class RäderHtml extends Html
 {
     /** @var array */
     protected array $summen;
@@ -24,11 +24,10 @@ class JahreHtml extends Html
             '<table>
                 <thead>
 				<tr>
-					<th>Jahr</th>
-					<th>Km</th>
-					<th>Hm</th>
+					<th>Rad</th>
+					<th>Gesamt Km</th>
+					<th>Gesamt Hm</th>
 					<th>km/h</th>
-					<th>Kg</th>
 				</tr>
 			    </thead>
 			    <tbody>
@@ -44,8 +43,8 @@ class JahreHtml extends Html
     {
         $result = NULL;
 
-        foreach ($this->summen as $jahre)
-            $result .= $this->htmlTableRow($jahre);
+        foreach ($this->summen as $summe)
+            $result .= $this->htmlTableRow($summe);
 
         return $result;
     }
@@ -54,15 +53,14 @@ class JahreHtml extends Html
      * @param Summe $summe
      * @return string
      */
-    protected function htmlTableRow( Summe $summe)
+    protected function htmlTableRow(Summe $summe)
     {
         return
             '<tr>
-				<td>' . $summe->getJahr() . '</td>
+				<td>' . $summe->getRad() . '</td>
 				<td>' . number_format($summe->getGesamtKM(),0,',','.') . '</td>
-				<td>' . number_format($summe->getGesamtHM (),0,',','.') . '</td>
-				<td>' . number_format($summe->getGesSchnitt(),2,',','.') . '</td>
-				<td>' . number_format($summe->getGewicht(),2,',','.') . '</td>
+				<td>' . number_format($summe->getGesamtHM(),0,',','.') . '</td>
+				<td>' . number_format($summe->getGesSchnitt(),1,',','.') . '</td>
 			</tr>';
     }
 }

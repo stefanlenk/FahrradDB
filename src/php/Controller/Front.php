@@ -14,14 +14,17 @@ class Front extends Controller
 
 		switch($task)
 		{
-			case Task::Home:
-				$controllerClassName = ShowHome::class;
+			case Task::ShowTourenListe:
+				$controllerClassName = ShowTourenListe::class;
 				break;
+            case Task::Räder:
+                $controllerClassName = ShowRäder::class;
+                break;
             case Task::Jahre:
                 $controllerClassName = ShowJahre::class;
                 break;
 			default:
-				$controllerClassName = ShowTourenListe::class;
+				$controllerClassName = ShowHome::class;
 				break;
             case task::Suche:
                 $controllerClassName = ShowSuche::class;

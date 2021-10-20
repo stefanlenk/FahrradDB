@@ -30,6 +30,10 @@ abstract class Storage
 	/**
 	 * @return array
 	 */
-	abstract public function getSummen();
+	abstract public function getRadSummen();
 
+    /**
+     * @return array
+     */
+    // abstract public function newJahrSummen();
 }
