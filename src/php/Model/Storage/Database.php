@@ -55,7 +55,7 @@ class Database extends Storage
         $result -> setHm ( $row['hm'] );
         $result -> setSchnitt ( $row['Schnitt'] );
         $result -> setRad ( $row['RadName'] );
-        $result -> setPowerAvg ( $row['Power_Avg'] );
+        // $result -> setPowerAvg ( $row['Power_Avg'] );
         $result -> setStrava ( $row['Activity_ID'] );
         return $result;
     }
@@ -155,9 +155,12 @@ class Database extends Storage
 
         $statement = $this -> connection -> prepare ( $sql );
         $statement -> execute ();
-        $row = $statement -> fetchAll ( PDO::FETCH_ASSOC );
+        $rows = $statement -> fetchAll ( PDO::FETCH_ASSOC );
         $result = array();
-        $result[] = $this -> newJahrSummen ( $row );
+
+        foreach ($rows as $row)
+            $result[] = $this -> newGesamtSumme ( $row );
+
         return $result;
     }
 
@@ -167,7 +170,8 @@ class Database extends Storage
 
         $result -> setGesamtKM ( $row['km'] );
         $result -> setGesamtHM ( $row['hm'] );
-        $result -> setTage ( $row['TagesKM'] );
+        $result -> setTage ( $row['Tage'] );
+        $result -> setTagesKM ( $row['TagesKM'] );
 
         return $result;
     }

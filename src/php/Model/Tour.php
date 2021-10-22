@@ -26,10 +26,10 @@ class Tour
     protected string $Rad;
 
     /** @var string */
-    protected $Strava;
+    protected string $Strava;
 
-    /** @var int */
-    protected $PowerAvg;
+    /** @var string */
+    protected string $PowerAvg;
 
 	/**
 	 * @param int $tourId
@@ -130,7 +130,7 @@ class Tour
     /**
      * @return string
      */
-    public function getStrava()
+    public function getStrava(): string
     {
         return $this->Strava;
     }
@@ -138,7 +138,7 @@ class Tour
     /**
      * @param string $Strava
      */
-    public function setStrava($Strava)
+    public function setStrava( string $Strava)
     {
         $this->Strava = $Strava;
     }
@@ -170,7 +170,7 @@ class Tour
     /**
      * @param string $PowerAvg
      */
-    public function setPowerAvg($PowerAvg)
+    public function setPowerAvg( string $PowerAvg)
     {
         $this->PowerAvg = $PowerAvg;
     }

@@ -18,7 +18,7 @@ class HomeHtml extends Html
         $this->summen = $summen;
     }
 
-    public function render()
+ /*   public function render()
     {
         $this->html =
             '<table>
@@ -33,6 +33,12 @@ class HomeHtml extends Html
 				    ' . $this->htmlTableRows() . '					
                 </tbody>
 			</table>';
+    }*/
+
+    public function render()
+    {
+        $this->html =
+             $this->htmlTableRows();
     }
 
     /**
@@ -43,7 +49,7 @@ class HomeHtml extends Html
         $result = NULL;
 
         foreach ($this->summen as $summe)
-            $result .= $this->htmlTableRow($summe);
+            $result .= $this->htmlList($summe);
 
         return $result;
     }
@@ -53,6 +59,7 @@ class HomeHtml extends Html
         $km = $summe->getGesamtKM();
         $tage = $summe->getTage();
         $proTag = $km / $tage;
+        var_dump ($proTag);
         return $proTag;
     }
 
@@ -66,7 +73,26 @@ class HomeHtml extends Html
             '<tr>
 				<td>' . number_format($summe->getGesamtKM(),0,',','.') . '</td>
 				<td>' . number_format($summe->getGesamtHM(),0,',','.') . '</td>
-				<td>' . number_format($this->SummenBerechnung (),0,',','.') . '</td>
+				<td>' . number_format($summe->getTage (),0,',','.') . '</td>
 			</tr>';
+    }
+
+    protected function htmlList(Summe $summe)
+    {
+        $km = $summe->getGesamtKM();
+        $tage = $summe->getTage();
+        $proTag = $km / $tage;
+        $hm = $summe->getGesamtHM();
+        $everest = $hm / 8848;
+        return
+            '<li>Gesamt Km</li>
+            <li>' . number_format($summe->getGesamtKM(),0,',','.') . '</li>
+			<li>Gesamt Hm</li>
+			<li>' . number_format($summe->getGesamtHM(),0,',','.') . '</li>
+			<li>Everesting</li>
+			<li>' . number_format($everest,0,',','.') . ' x</li>
+			<li>Km pro Tag</li>
+			<li>' . number_format($proTag,1,',','.') . '</li>
+			';
     }
 }
